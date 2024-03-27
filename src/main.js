@@ -104,13 +104,13 @@ console.log(activarProtocoloUrgencia(pacientes));
 //Apartado 3 -> El pediatra no puede atender hoy a los pacientes, así que hay que reasignar los pacientes asignados a la especialidad de pediatría a la de medico de familia.
 const reasignaPacientesAMedicoFamilia = (pacientes) => {
   let pacientesModificados = [];
-  for (let i = 0; i < pacientesModificados.length; i++) {
+  for (let i = 0; i < pacientes.length; i++) {
     const paciente = pacientes[i];
     if (paciente.especialidad === "Pediatra") {
-      const nuevoPaciente = {nombre: paciente.nombre, edad: paciente.edad, especialidad: "Medico de familia"};
+      const nuevoPaciente = { ...paciente, especialidad: "Medico de familia" }
       pacientesModificados.push(nuevoPaciente);
-    } else {
-      const nuevoPaciente = {nombre: paciente.nombre, edad: paciente.edad, especialidad: paciente.especialidad};
+    } else { 
+      const nuevoPaciente = { ...paciente }
       pacientesModificados.push(nuevoPaciente);
     };
   };
